@@ -19,6 +19,13 @@ class MyFileVisitor extends SimpleFileVisitor<Path> {
                 file.toFile().isDirectory());
         return FileVisitResult.CONTINUE;
     }
+    @Override
+    public FileVisitResult postVisitDirectory(Path dir, IOException e)
+            throws IOException{
+        System.out.println(dir.getFileName() + ", " + dir.toFile().length() + ", " +
+                dir.toFile().isDirectory());
+        return FileVisitResult.CONTINUE;
+    }
 
 }
 
